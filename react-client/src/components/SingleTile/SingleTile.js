@@ -2,6 +2,7 @@ import React from 'react';
 import {Col} from 'react-bootstrap';
 import {NEWS_TILE_ID} from '../../consts';
 import NewsContent from '../../views/NewsContent';
+import SocketIoClient from 'socket.io-client';
 
 
 
@@ -14,8 +15,14 @@ class SingleTile extends React.Component {
         this.getContentById = this.getContentById.bind(this);
         this.getUpdateByMilSeconds = this.getUpdateByMilSeconds.bind(this);
     }
+    componentDidMount () {
+        this.getUpdateByMilSeconds(this.props.milSecondsForUpdate)
+    }
     getUpdateByMilSeconds (milSecondsForUpdate) {
         //execute the call for websocket
+        const END_POINT = this.props.socketChannel;
+        const Socket = SocketIoClient(END_POINT);
+        Socket.from('FromAPI', data => this.setState({data: data}));
     }
     getContentById (tileId) {
         switch (tileId) {
