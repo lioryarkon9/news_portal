@@ -14,6 +14,7 @@ import SportsContent from '../../views/SportsContent';
 import SubscribeContent from '../../views/SubscribeContent';
 import SocketIoClient from 'socket.io-client';
 import {getMockDataByTileId} from '../../utils';
+import './SingleTile.css';
 
 
 
