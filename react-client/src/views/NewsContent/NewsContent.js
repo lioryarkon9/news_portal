@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const NewsContent = props => {
-    console.info(props);
+    console.info('news props: ', props);
     return (
         <div>
             NewsContent
