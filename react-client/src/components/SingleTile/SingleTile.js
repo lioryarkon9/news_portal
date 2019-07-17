@@ -69,7 +69,7 @@ class SingleTile extends React.Component {
         }
     }
     render () {
-        const CurrentTile = {...this.props};
+        const CurrentTile = {...this.props, ...this.state};
         delete CurrentTile['showModalView'];
         return (
             <Col 

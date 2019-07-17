@@ -3,6 +3,7 @@ import TilesView from './views/TilesView';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {NEWS_TILE_ID, WEATHER_TILE_ID} from './consts';
 import ModalView from './views/ModalView';
+import { relative } from 'path';
 
 
 class App extends React.Component {
@@ -24,7 +25,7 @@ class App extends React.Component {
     }
     render () {
         return (
-            <div>
+            <div style={{position: relative}}>
                 {this.state.CurrentTile ?
                     <ModalView
                         data={this.state.CurrentTile}
