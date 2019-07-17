@@ -1,10 +1,11 @@
 import React from 'react';
+import './SubscribeContent.css';
 
 
 const SubscribeContent = props => {
     console.info('subscribe props: ', props);
     return (
-        <div>
+        <div id='subscribe-content'>
             SubscribeContent
         </div>
     );

@@ -1,11 +1,12 @@
 import React from 'react';
+import './FinanceContent.css';
 
 
 const FinanceContent = props => {
     console.info('finance props: ', props);
     return (
-        <div>
-            FinanceContent
+        <div id='finance-content'>
+            FinanceContentChart
         </div>
     );
 }

@@ -1,11 +1,12 @@
 import React from 'react';
+import './NewsContent.css';
 
 
 const NewsContent = props => {
     console.info('news props: ', props);
     return (
-        <div>
-            NewsContent
+        <div id='news-content'>
+            {props.data}
         </div>
     );
 }
