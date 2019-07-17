@@ -33,15 +33,15 @@ class SingleTile extends React.Component {
     getUpdates () {
         //execute the call for websocket connection
         if (this.props.id !== SUBSCRIBE_TILE_ID) {
-            const END_POINT = 'http://localhost:5000/' + this.props.socketChannel; 
-            const Socket = SocketIoClient(END_POINT);
-            Socket.on('data', data => {
-                this.setState({...data});
-            });
-            // -- Use the following mock data for development
-            // console.error('using mock data for development');
-            // const MockData = getMockDataByTileId(this.props.id);
-            // this.setState({...MockData});
+            // const END_POINT = 'http://localhost:5000/' + this.props.socketChannel; 
+            // const Socket = SocketIoClient(END_POINT);
+            // Socket.on('data', data => {
+            //     this.setState({...data});
+            // });
+            //-- Use the following mock data for development
+            console.error('using mock data for development');
+            const MockData = getMockDataByTileId(this.props.id);
+            this.setState({...MockData});
         }
     }
     getContentById (tileId) {
@@ -69,8 +69,13 @@ class SingleTile extends React.Component {
         }
     }
     render () {
+        const CurrentTile = {...this.props};
+        delete CurrentTile['showModalView'];
         return (
-            <Col onClick={this.props.showModalView} className='SingleTile'>
+            <Col 
+                onClick={e => this.props.showModalView(CurrentTile)} 
+                className='SingleTile'
+            >
                 <div>{this.props.title}</div>
                 <div className='content'>
                     {this.getContentById(this.props.id)}
@@ -84,7 +89,6 @@ SingleTile.defaultProps = {
     id: '',
     socketChannel: '',
     title: '',
-    milSecondsForUpdate: '',
     showModalView: e => console.info('default showModalView fired')
 }
 

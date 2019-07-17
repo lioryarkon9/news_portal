@@ -14,7 +14,7 @@ const TilesView = props => {
                         id={item.id}
                         socketChannel={item.socketChannel}
                         title={item.title}
-                        milSecondsForUpdate={item.milSecondsForUpdate}
+                        showModalView={props.showModalView}
                     />
                 ))}
             </Row>
