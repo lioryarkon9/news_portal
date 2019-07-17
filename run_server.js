@@ -36,9 +36,9 @@ const NEWS_CHANNEL = IO.of('/news', function (socket) {
 
 const WAETHER_CHANNEL = IO.of('/weather', function (socket) {
     console.log('a weather user is connected');
-    socket.emit('data', {data: '36 C Tel Aviv'});
+    socket.emit('data', {data: {tmp: '25', location: 'Nes Ziona'}});
     const IntervalId = setInterval(() => {
-        socket.emit('data', {data: '40 C Eilat'})
+        socket.emit('data', {data: {tmp: '40', location: 'Eilat'}});
     }, 14400000);
     socket.on('disconnect', function () {
         console.log('A weather user disconnected');
