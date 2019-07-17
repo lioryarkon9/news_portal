@@ -1,13 +1,31 @@
 import React from 'react';
 import './SportsContent.css';
+import {Container, Row, Col} from 'react-bootstrap';
 
 
 const SportsContent = props => {
     console.info('sports props: ', props);
+    const TEAM_A_NAME = props.data ? props.data.Team1.label : null;
+    const TEAM_A_SCORE = props.data ? props.data.Team1.points : null;
+    const TEAM_B_NAME = props.data ? props.data.Team2.label : null;
+    const TEAM_B_SCORE = props.data ? props.data.Team2.points : null;
     return (
-        <div id='sports-content'>
-            SportsContent
-        </div>
+        <Container id='sports-content'>
+            <Row>
+                <Col xs={10} sm={4}>
+                    {TEAM_A_NAME}: 
+                </Col>
+                <Col xs={2} sm={2}>
+                    {TEAM_A_SCORE}
+                </Col>
+                <Col xs={10} sm={4}>
+                    {TEAM_B_NAME}:
+                </Col>
+                <Col xs={2} sm={2}>
+                    {TEAM_B_SCORE}
+                </Col>
+            </Row>
+        </Container>
     );
 }
 
