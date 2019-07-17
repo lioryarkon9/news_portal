@@ -1,5 +1,4 @@
 import React from 'react';
-import './FinanceContent.css';
 import {Chart} from 'chart.js';
 
 

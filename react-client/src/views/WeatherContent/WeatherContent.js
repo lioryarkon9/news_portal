@@ -1,6 +1,5 @@
 import React from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
-import './WeatherContent.css';
 import HOT_ICON from '../../assets/sun.png';
 import SUN_OK from '../../assets/sun_ok.png';
 import WINTER from '../../assets/winter.png';

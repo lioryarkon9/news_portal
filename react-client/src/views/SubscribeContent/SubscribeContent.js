@@ -1,5 +1,4 @@
 import React from 'react';
-import './SubscribeContent.css';
 import {handleFetchErr} from '../../utils';
 
 

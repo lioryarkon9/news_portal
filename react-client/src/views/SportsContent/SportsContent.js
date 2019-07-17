@@ -1,5 +1,4 @@
 import React from 'react';
-import './SportsContent.css';
 import {Container, Row, Col} from 'react-bootstrap';
 
 
