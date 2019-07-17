@@ -5,7 +5,7 @@ export function getMockDataByTileId (tileId) {
         case NEWS_TILE_ID:
             return {data: 'Mock Breaking News Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim'};
         case WEATHER_TILE_ID:
-            return {data: {tmp: '40', location: 'Eilat'}};
+            return {data: {tmp: '12', location: 'Tel Aviv'}};
         case FINANCE_TILE_ID:
             return {data: {PointsScored: [80, 25, 30, 70], Teams: ['Team1', 'Team2', 'Team3', 'Team4']}};
         case SPORTS_TILE_ID:
