@@ -1,14 +1,42 @@
 import React from 'react';
 import './FinanceContent.css';
+import {Chart} from 'chart.js';
 
 
-const FinanceContent = props => {
-    console.info('finance props: ', props);
-    return (
-        <div id='finance-content'>
-            FinanceContentChart
-        </div>
-    );
+class FinanceContent extends React.Component {
+    constructor (props) {
+        super(props);
+        this.chartRef = React.createRef();
+        this.createFinanceChart = this.createFinanceChart.bind(this);
+    }
+    componentDidUpdate () {
+        this.createFinanceChart();
+    }
+    createFinanceChart () {
+        if (this.props.data) {
+            const financeChartRef = this.chartRef.current.getContext("2d");
+            this.financeChart = new Chart(financeChartRef, {
+                type: 'line',
+                data: {
+                    labels: this.props.data.Teams,
+                    datasets: [
+                        {
+                            label: 'Points scored',
+                            data: this.props.data.PointsScored
+                        }
+                    ]
+                }
+            });
+        }
+    }
+    render () {
+        console.info('finance props: ', this.props);
+        return (
+            <div id='finance-content'>
+                <canvas ref={this.chartRef}></canvas>
+            </div>
+        ); 
+    }
 }
 
 export default FinanceContent;
