@@ -20,6 +20,11 @@ App.get('/', function (req, res) {
     res.sendFile(__dirname + '/react-client/build/index.html');
 });
 
+App.post('/subscribe', function (req, res) {
+    const EMAIL = req.body.emailValue;
+    res.json({msg: 'ok', emailReceived: EMAIL});
+})
+
 const IO = SOCKET_IO(EXPRESS_SERVER);
 
 const NEWS_CHANNEL = IO.of('/news', function (socket) {

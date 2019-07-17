@@ -16,3 +16,10 @@ export function getMockDataByTileId (tileId) {
             console.error('no handler for getMockDataByTileId');
     }
 }
+
+export function handleFetchErr (response) {
+    if (!response.ok) {
+        throw Error(response.statusText);
+    }
+    return response;
+}

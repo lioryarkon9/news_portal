@@ -32,14 +32,17 @@ class SingleTile extends React.Component {
     }
     getUpdates () {
         //execute the call for websocket connection
-        const END_POINT = 'http://localhost:5000/' + this.props.socketChannel; 
-        //const Socket = SocketIoClient(END_POINT);
-        // Socket.on('data', data => {
-        //     this.setState({...data});
-        // });
-        console.error('using mock data for development');
-        const MockData = getMockDataByTileId(this.props.id);
-        this.setState({...MockData});
+        if (this.props.id !== SUBSCRIBE_TILE_ID) {
+            const END_POINT = 'http://localhost:5000/' + this.props.socketChannel; 
+            const Socket = SocketIoClient(END_POINT);
+            Socket.on('data', data => {
+                this.setState({...data});
+            });
+            // -- Use the following mock data for development
+            // console.error('using mock data for development');
+            // const MockData = getMockDataByTileId(this.props.id);
+            // this.setState({...MockData});
+        }
     }
     getContentById (tileId) {
         switch (tileId) {
