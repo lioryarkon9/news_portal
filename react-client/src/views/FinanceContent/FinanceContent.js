@@ -29,7 +29,6 @@ class FinanceContent extends React.Component {
         }
     }
     render () {
-        console.info('finance props: ', this.props);
         return (
             <div id='finance-content'>
                 <canvas ref={this.chartRef}></canvas>

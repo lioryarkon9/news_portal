@@ -4,7 +4,6 @@ import {getCurrentHour} from '../../utils';
 
 
 const SportsContent = props => {
-    console.info('sports props: ', props);
     const TEAM_A_NAME = props.data ? props.data.Team1.label : null;
     const TEAM_A_SCORE = props.data ? props.data.Team1.points : null;
     const TEAM_B_NAME = props.data ? props.data.Team2.label : null;

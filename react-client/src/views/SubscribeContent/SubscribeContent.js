@@ -38,7 +38,6 @@ class SubscribeContent extends React.Component {
         }
     }
     render () {
-        console.info('subscribe props: ', this.props);
         return (
             <div id='subscribe-content'>
                 <div className="form-group">

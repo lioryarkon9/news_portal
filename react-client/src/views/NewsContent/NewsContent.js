@@ -4,7 +4,6 @@ import {getCurrentHour} from '../../utils';
 
 
 const NewsContent = props => {
-    console.info('news props: ', props);
     return (
         <div id='news-content'>
             <div style={{color: 'red'}}>

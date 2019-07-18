@@ -10,7 +10,6 @@ const TEMP_OK_LOWER_LIMIT = 15;
 const TEMP_OK_UPPER_LIMIT = 30;
 
 const WeatherContent = props => {
-    console.info('weather props: ', props);
     const TEMPERATURE = props.data ? props.data.tmp : null;
     const LOCATION = props.data ? props.data.location : null;
     const GetWeatherImgSrc = () => {
