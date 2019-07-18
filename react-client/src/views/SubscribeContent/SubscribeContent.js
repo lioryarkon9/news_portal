@@ -12,7 +12,7 @@ class SubscribeContent extends React.Component {
             `
             return;
         }
-        if (!window.localStorage.getItem('subscribedEmail')) {
+        if (!window.sessionStorage.getItem('subscribedEmail')) {
             fetch ('./subscribe', {
                 method: 'POST',
                 headers: {
@@ -24,7 +24,7 @@ class SubscribeContent extends React.Component {
             .then(resp => {
                 resp.json()
                 .then(jsonRes => {
-                    window.localStorage.setItem('subscribedEmail', jsonRes.emailReceived);
+                    window.sessionStorage.setItem('subscribedEmail', jsonRes.emailReceived);
                     document.getElementById('subscribe-err-div').innerHTML = `
                         <span style="color: green">Got it!</span>
                     `
