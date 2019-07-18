@@ -25,7 +25,7 @@ class App extends React.Component {
     }
     render () {
         return (
-            <div style={{position: relative}}>
+            <div>
                 {this.state.CurrentTile ?
                     <ModalView
                         data={this.state.CurrentTile}

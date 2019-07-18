@@ -1,11 +1,18 @@
 import React from 'react';
-import {handleFetchErr} from '../../utils';
+import {handleFetchErr, isValidEmail} from '../../utils';
 
 
 class SubscribeContent extends React.Component {
     handleOnclickSend (e) {
+        document.getElementById('subscribe-err-div').innerHTML = ''; //reset
+        const EMAIL_VALUE = document.getElementById('email-input').value; 
+        if (!isValidEmail(EMAIL_VALUE)) {
+            document.getElementById('subscribe-err-div').innerHTML = `
+                <span style="color: red">Invalid email</span>
+            `
+            return;
+        }
         if (!window.localStorage.getItem('subscribedEmail')) {
-            const EMAIL_VALUE = document.getElementById('email-input').value;
             fetch ('./subscribe', {
                 method: 'POST',
                 headers: {
@@ -17,12 +24,17 @@ class SubscribeContent extends React.Component {
             .then(resp => {
                 resp.json()
                 .then(jsonRes => {
-                    window.localStorage.setItem('subscribedEmail', jsonRes.emailReceived)
+                    window.localStorage.setItem('subscribedEmail', jsonRes.emailReceived);
+                    document.getElementById('subscribe-err-div').innerHTML = `
+                        <span style="color: green">Got it!</span>
+                    `
                 })
             })
             .catch(err => console.error(err));
         } else {
-            window.alert('You have already subscribed');
+            document.getElementById('subscribe-err-div').innerHTML = `
+                <span style="color: red">You have already subscribed</span>
+            `
         }
     }
     render () {
@@ -40,6 +52,7 @@ class SubscribeContent extends React.Component {
                 <div className='text-right'>
                     <button onClick={this.handleOnclickSend} className='btn btn-primary'>SEND</button>
                 </div>
+                <div id='subscribe-err-div'></div>
             </div>
         );
     }
