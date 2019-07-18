@@ -1,18 +1,14 @@
 import React from 'react';
 import './NewsContent.css';
+import {getCurrentHour} from '../../utils';
 
 
 const NewsContent = props => {
     console.info('news props: ', props);
-    const GetUpdateHour = () => {
-        const TodayDate = new Date();
-        const HOUR = TodayDate.getHours(), Minutes = TodayDate.getMinutes();
-        return HOUR + ':' + Minutes;
-    }
     return (
         <div id='news-content'>
             <div style={{color: 'red'}}>
-                Breaking News! {GetUpdateHour()}
+                Breaking News! {getCurrentHour()}
             </div>
             <div id='news-from-server'>
                 {props.data}

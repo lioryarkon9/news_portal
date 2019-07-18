@@ -1,5 +1,6 @@
 import React from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
+import {getCurrentHour} from '../../utils';
 
 
 const SportsContent = props => {
@@ -23,6 +24,9 @@ const SportsContent = props => {
                 <Col xs={2} sm={2}>
                     {TEAM_B_SCORE}
                 </Col>
+            </Row>
+            <Row>
+                Last Update: {getCurrentHour()}
             </Row>
         </Container>
     );

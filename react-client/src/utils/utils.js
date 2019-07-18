@@ -35,3 +35,12 @@ export function handleFetchErr (response) {
 export function isValidEmail (emailValue) {
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(emailValue);
 }
+
+export function getCurrentHour () {
+    const TodayDate = new Date();
+    const Hour = TodayDate.getHours().toString().length === 2 ? TodayDate.getHours() : '0' + TodayDate.getHours();
+    const Minutes = TodayDate.getMinutes().toString().length === 2 ? TodayDate.getMinutes() : '0' + TodayDate.getMinutes();
+    const Seconds = TodayDate.getSeconds().toString().length === 2 ? TodayDate.getSeconds() : '0' + TodayDate.getSeconds();
+
+    return Hour + ':' + Minutes + ':' + Seconds;
+}
