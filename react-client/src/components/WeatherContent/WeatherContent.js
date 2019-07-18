@@ -32,7 +32,9 @@ const WeatherContent = props => {
                 </Col>
             </Row>
             <Row>
-                Last Update: {getCurrentHour()}
+                <Col>
+                    Last Update: {getCurrentHour()}
+                </Col>
             </Row>
         </Container>
     );
