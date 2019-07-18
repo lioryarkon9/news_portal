@@ -4,6 +4,7 @@ import './ModalView.css';
 import NewsModal from './NewsModal';
 import WeatherModal from './WeatherModal';
 import {NEWS_TILE_ID, WEATHER_TILE_ID} from '../../consts';
+import CLOSE_ICON from '../../assets/close.png';
 
 
 const ModalView = props => {
@@ -25,8 +26,8 @@ const ModalView = props => {
     }
     return (
         <Container id='ModalView'>
-            <div style={{cursor: 'pointer'}} className='text-right' onClick={props.hideModalView}>
-                <span>Close</span>
+            <div className='text-right' onClick={props.hideModalView}>
+                <img id='close-modal-img' src={CLOSE_ICON} alt='close' style={{cursor: 'pointer'}}/>
             </div>
             {RenderContent()}
         </Container>
