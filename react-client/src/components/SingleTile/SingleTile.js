@@ -80,7 +80,7 @@ class SingleTile extends React.Component {
                 onClick={e => this.props.showModalView(CurrentTile)} 
                 className='SingleTile'
             >
-                <div>{this.props.title}</div>
+                <div style={{fontWeight: 'bold'}}>{this.props.title}</div>
                 <div className='content'>
                     {this.getContentById(this.props.id)}
                 </div>
