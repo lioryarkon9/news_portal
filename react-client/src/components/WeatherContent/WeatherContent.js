@@ -3,6 +3,7 @@ import {Container, Row, Col} from 'react-bootstrap';
 import HOT_ICON from '../../assets/sun.png';
 import SUN_OK from '../../assets/sun_ok.png';
 import WINTER from '../../assets/winter.png';
+import './WeatherContent.css';
 
 const TEMP_OK_LOWER_LIMIT = 15;
 const TEMP_OK_UPPER_LIMIT = 30;
@@ -23,14 +24,14 @@ const WeatherContent = props => {
         else return SUN_OK;
     }
     return (
-        <Container id='weather-content'>
+        <Container className='weather-content'>
             <Row>
                 <Col>
                     <div>{TEMPERATURE} C</div>
                     <div>{LOCATION}</div>
                 </Col>
                 <Col>
-                    <div id='img-frame' className='d-flex justify-content-center'>
+                    <div className='d-flex justify-content-center img-frame'>
                         <img src={GetWeatherImgSrc()} alt='img'/>
                     </div>
                 </Col>

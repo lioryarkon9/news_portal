@@ -9,4 +9,6 @@
     left: 50%;
     margin-left: -40vw;
     color: #fff;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }

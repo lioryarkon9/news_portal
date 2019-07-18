@@ -1,0 +1,8 @@
+.weather-content .img-frame {
+    width: 96;
+    height: 96px;
+}
+
+.weather-content img {
+    object-fit: contain;
+}

@@ -41,9 +41,25 @@ const NEWS_CHANNEL = IO.of('/news', function (socket) {
 
 const WAETHER_CHANNEL = IO.of('/weather', function (socket) {
     console.log('a weather user is connected');
-    socket.emit('data', {data: {tmp: '25', location: 'Nes Ziona'}});
+    socket.emit('data', {data: [
+        {tmp: '36', location: 'Beer Sheva'},
+        {tmp: '37', location: 'Beer Sheva'},
+        {tmp: '28', location: 'Beer Sheva'},
+        {tmp: '17', location: 'Beer Sheva'},
+        {tmp: '33', location: 'Beer Sheva'},
+        {tmp: '11', location: 'Beer Sheva'},
+        {tmp: '24', location: 'Beer Sheva'}
+    ]});
     const IntervalId = setInterval(() => {
-        socket.emit('data', {data: {tmp: '40', location: 'Eilat'}});
+        socket.emit('data', {data: [
+            {tmp: '36', location: 'Beer Sheva'},
+            {tmp: '37', location: 'Beer Sheva'},
+            {tmp: '28', location: 'Beer Sheva'},
+            {tmp: '17', location: 'Beer Sheva'},
+            {tmp: '33', location: 'Beer Sheva'},
+            {tmp: '11', location: 'Beer Sheva'},
+            {tmp: '24', location: 'Beer Sheva'}
+        ]});
     }, 14400000);
     socket.on('disconnect', function () {
         console.log('A weather user disconnected');

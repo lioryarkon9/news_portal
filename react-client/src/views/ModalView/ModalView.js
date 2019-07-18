@@ -2,7 +2,8 @@ import React from 'react';
 import {Container} from 'react-bootstrap';
 import './ModalView.css';
 import NewsModal from './NewsModal';
-import {NEWS_TILE_ID} from '../../consts';
+import WeatherModal from './WeatherModal';
+import {NEWS_TILE_ID, WEATHER_TILE_ID} from '../../consts';
 
 
 const ModalView = props => {
@@ -12,6 +13,11 @@ const ModalView = props => {
                 const FullArticle = props.data.data
                 return (
                     <NewsModal fullArticle={FullArticle}/>
+                );
+            case WEATHER_TILE_ID:
+                const FullForecast = props.data.data
+                return (
+                    <WeatherModal fullForecast={FullForecast}/>
                 );
             default:
                 return null;

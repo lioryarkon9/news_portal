@@ -8,7 +8,7 @@ import {
     SUBSCRIBE_TILE_ID
 } from '../../consts';
 import NewsContent from '../../views/NewsContent';
-import WeatherContent from '../../views/WeatherContent';
+import WeatherContent from '../../components/WeatherContent';
 import FinancialContent from '../../views/FinanceContent';
 import SportsContent from '../../views/SportsContent';
 import SubscribeContent from '../../views/SubscribeContent';
@@ -51,8 +51,9 @@ class SingleTile extends React.Component {
                     <NewsContent data={this.state.data}/>
                 );
             case WEATHER_TILE_ID:
+                const RelevantData = this.state.data ? this.state.data[0] : null
                 return (
-                    <WeatherContent data={this.state.data}/>
+                    <WeatherContent data={RelevantData}/>
                 );
             case FINANCE_TILE_ID:
                 return (
